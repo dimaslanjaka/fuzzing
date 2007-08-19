@@ -2,7 +2,7 @@
 
 class Fuzzer implements FuzzerInterface  {
 
-	public function __constrcut(Storage $storage, Route $roues) {
+	public function __construct(Storage $storage, Route $roues) {
 		
 	}
 
