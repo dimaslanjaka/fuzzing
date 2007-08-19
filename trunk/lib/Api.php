@@ -20,7 +20,7 @@ class Api extends ApiAbstract implements ApiInterface {
 	 *
 	 * @return unknown
 	 */
-	public function __construct(array $routes, string $storage) {
+	public function __construct(array $routes, $storage) {
 		if(!empty($routes) && !empty($storage)){
 			
 			$this->routes = $routes;
@@ -64,7 +64,7 @@ class Api extends ApiAbstract implements ApiInterface {
  */
 interface ApiInterface {
 	
-	public function __construct(array $routes);
+	public function __construct(array $routes, $storage);
 	
 	public function __destruct();
 
