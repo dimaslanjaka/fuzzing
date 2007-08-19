@@ -14,6 +14,8 @@ class Api extends ApiAbstract implements ApiInterface {
 	 * @var unknown_type
 	 */
 	protected $routes;
+
+	public $results = array();
 	
 	/**
 	 * Enter description here...
@@ -25,7 +27,8 @@ class Api extends ApiAbstract implements ApiInterface {
 			
 			$this->routes = $routes;
 			$this->storage = $storage;
-			$this->initFuzzing();
+			
+			$this->results =  $this->initFuzzing();
 		}
 	}
 	
@@ -39,14 +42,11 @@ class Api extends ApiAbstract implements ApiInterface {
 		require_once 'Storage.php';
 		require_once 'Route.php';
 		
-		//TODO: take care of JSON storage
-		
 		$routes = new Route($this->routes);
 		$storage = new Storage($this->storage);
-		
 		$fuzzer = new Fuzzer($storage, $routes);
-
-		return $this->results;
+		
+		return $fuzzer->getResult();
 	}
 	
 	/**
@@ -57,9 +57,8 @@ class Api extends ApiAbstract implements ApiInterface {
 	}
 }
 
-
-
 /**
+ * Enter description here...
  *
  */
 interface ApiInterface {
