@@ -19,7 +19,9 @@ class Storage {
 	protected function getElementsFromJSON() {
 		if(extension_loaded('JSON')) {
 			// fetch storage
-			$this->elements = json_decode(file_get_contents($this->path));
+			
+			$json = file_get_contents($this->path);
+			$this->elements = json_decode($json);
 		} else {
 			throw new Exception('No JSON available');
 		}
