@@ -6,7 +6,7 @@ require_once('abstract/ApiAbstract.php');
  * Enter description here...
  *
  */
-class FuzzingApi extends ApiAbstract implements ApiInterface {
+class Api extends ApiAbstract implements ApiInterface {
 
 	/**
 	 * Enter description here...
@@ -20,10 +20,11 @@ class FuzzingApi extends ApiAbstract implements ApiInterface {
 	 *
 	 * @return unknown
 	 */
-	public function __construct(array $routes) {
-		if(!empty($routes)){
-			$this->routes = $routes;	
-
+	public function __construct(array $routes, string $storage) {
+		if(!empty($routes) && !empty($storage)){
+			
+			$this->routes = $routes;
+			$this->storage = $storage;
 			$this->initFuzzing();
 		}
 	}
@@ -38,8 +39,12 @@ class FuzzingApi extends ApiAbstract implements ApiInterface {
 		require_once 'Storage.php';
 		require_once 'Route.php';
 		
+		//TODO: take care of JSON storage
+		
 		$routes = new Route($this->routes);
-		$fuzzer = new Fuzzer($routes);
+		$storage = new Storage($this->storage);
+		
+		$fuzzer = new Fuzzer($storage, $routes);
 
 		return $this->results;
 	}
