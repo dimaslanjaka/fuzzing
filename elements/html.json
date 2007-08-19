@@ -1,18 +1,16 @@
-{properties : 
-["src", "href", "style", "rel", "class", "id"]}
+{
+"properties" : 
+["src", "href", "style", "rel", "class", "id"],
 
-{methods : 
-["", "", "", "", "", "", ""]
-}
+"methods" : 
+["a", "script", "div", "span", "body", "img", "link"],
 
-{operators : 
-["", "", "", "", "", "", ""]
-}
+"operators" : 
+["="],
 
-{parenthesis : 
-["", "", "", "", "", "", ""]
-}
+"parenthesis" : 
+["<", ">", "/>"],
 
-{linebreaks : 
-["", "", "", "", "", "", ""]
+"whitespace" : 
+["%20", "%0A"]
 }
