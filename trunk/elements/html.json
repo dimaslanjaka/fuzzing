@@ -8,9 +8,12 @@
 "operators" : 
 ["="],
 
+"delimiters" : 
+["\"", "'", "`", "´", ""],
+
 "parenthesis" : 
 ["<", ">", "/>"],
 
 "whitespace" : 
-["%20", "%0A"]
+[" ", "\n", "\t"]
 }
