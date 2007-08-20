@@ -1,38 +1,22 @@
 <?php
 
+require_once('abstract/FuzzerAbstract.php');
+
 /**
- * Enter description here...
- *
+ * Fuzzer class - is called by the API
+ * 
+ * @name MetaFuzzer {pha:zing}
+ * @package Fuzzing
+ * @author <mario.heiderich@gmail.com>
  */
-class Fuzzer implements FuzzerInterface  {
+class Fuzzer extends FuzzerAbstract implements FuzzerInterface  {
 
 	/**
-	 * Enter description here...
-	 *
-	 * @var unknown_type
-	 */
-	protected $elements = array();
-	
-	/**
-	 * Enter description here...
-	 *
-	 * @var unknown_type
-	 */
-	protected $routes = array();
-	
-	/**
-	 * Enter description here...
-	 *
-	 * @var unknown_type
-	 */
-	protected $result = array();
-	
-	/**
-	 * Enter description here...
+	 * Kick-starts fuzzing process
 	 *
 	 * @param Storage $storage
 	 * @param Route $routes
-	 * @return unknown
+	 * @return array the result
 	 */
 	public function __construct(Storage $storage, Route $routes) {
 		
@@ -43,30 +27,12 @@ class Fuzzer implements FuzzerInterface  {
 	}
 
 	/**
-	 * Enter description here...
+	 * This method validates the tokens and concatenates 
+	 * the result fragments
 	 *
-	 * @return unknown
-	 */
-	protected function startFuzzing() {
-
-		foreach($this->routes as $route) {
-			
-			foreach($route as $item) {
-				
-				$result .= $this->concatenateResult($item);	
-			}
-			$this->result[] = $result;
-			$result = null;
-		}
-		
-		return $this->result;
-	}
-	
-	/**
-	 * Enter description here...
-	 *
-	 * @param unknown_type $item
-	 * @return unknown
+	 * @param string $item
+	 * @return string concatenated string
+	 * @throws Exception
 	 */
 	protected function concatenateResult($item) {
 
@@ -86,67 +52,15 @@ class Fuzzer implements FuzzerInterface  {
 			return $this->getShuffled($this->elements->whitespace, false);
 		} elseif($item == 'D') {
 			return $this->getShuffled($this->elements->delimiters, false);
+        } elseif($item == 'V') {
+            return $this->getShuffled($this->elements->values, false);			
 		} else {
 			throw new Exception('Invalid route fragment');
 		}
 	}
 	
 	/**
-	 * Enter description here...
-	 *
-	 * @param unknown_type $elements
-	 * @return unknown
-	 */
-	protected function getShuffled($elements, $random = false) {
-		
-		# create controlled string - option: BDMOPW
-		if(is_array($elements)) {
-
-			shuffle($elements);
-			return $elements[0];
-		} else {
-
-			$pool = array();
-
-			# create totally chaotic string - option: *
-			if($random) {
-				foreach($elements as $element) {
-				    $pool = array_merge($element, $pool);
-				}
-				$random = null;
-				$counter = rand(0,500);
-				while($counter != 0) {
-				    shuffle($pool);
-				    $random .= $pool[0];
-				    $counter--;    
-			    }
-			    return $random;
-			} 
-			# create contolled chaotic string - option: ?
-			else {
-				foreach($elements as $element) {
-	                shuffle($element);    
-				    $pool[] = $element[0];
-			    }
-    		}
-
-			shuffle($pool);
-			return $pool[0];
-		}
-	}
-
-	/**
-	 * Enter description here...
-	 *
-	 * @return unknown
-	 */
-	public function getResult() {
-		
-		return $this->result;
-	}
-	
-	/**
-	 * Enter description here...
+	 * Use when needed
 	 *
 	 */
 	public function __destruct() {
@@ -155,8 +69,15 @@ class Fuzzer implements FuzzerInterface  {
 }
 
 /**
- * Enter description here...
- *
+ * Fuzzer interface
+ * 
+ * Only interceptors and getters are public
  */
 interface FuzzerInterface {
+	
+	public function __construct(Storage $storage, Route $routes);
+	
+	public function getResult();
+	
+	public function __destruct();
 }

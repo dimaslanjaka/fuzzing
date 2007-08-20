@@ -1,29 +1,17 @@
 <?php
 
+require_once('abstract/StorageAbstract.php');
+
 /**
- * Enter description here...
+ * This is the Storage logic
  *
  */
-class Storage extends IteratorIterator implements Iterator {
+class Storage extends StorageAbstract implements Iterator, StorageInterface {
 	
 	/**
-	 * Enter description here...
+	 * Checks for the element JSON and parses it
 	 *
-	 * @var unknown_type
-	 */
-	protected $path = false;
-	
-	/**
-	 * Enter description here...
-	 *
-	 * @var unknown_type
-	 */
-	protected $elements = array();
-	
-	/**
-	 * Enter description here...
-	 *
-	 * @param unknown_type $path
+	 * @param string path to the JSON
 	 */
 	public function __construct($path) {
 
@@ -34,31 +22,16 @@ class Storage extends IteratorIterator implements Iterator {
 			throw new Exception('Storage file doesn\'t exist');	
 		}
 	}
+}
+
+/**
+ * Storage interface - only constructor and getter 
+ * are accessible
+ *
+ */
+interface StorageInterface {
 	
-	/**
-	 * Enter description here...
-	 *
-	 * @return unknown
-	 */
-	protected function getElementsFromJSON() {
-		if(extension_loaded('JSON')) {
-			
-			$json = file_get_contents($this->path);
-			$this->elements = json_decode($json);
-		} else {
-			throw new Exception('No JSON available');
-		}
-		
-		return $this;
-	}
+	public function __construct($path);
 	
-	/**
-	 * Enter description here...
-	 *
-	 * @return unknown
-	 */
-	public function getElements() {
-		
-		return $this->elements;
-	}
+	public function getElements();
 }
