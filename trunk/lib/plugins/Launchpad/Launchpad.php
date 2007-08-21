@@ -26,7 +26,13 @@ class Launchpad {
     }
     
     public static function htmlWrapper(Api $api, $connect = null) {
-    	
+        
+    	return '<html>' . $api . '</html>';    	
+    }
+    
+    public static function scriptWrapper(Api $api, $connect = null) {
+
+    	return '<script>' . $api . '</script>';
     }
     
 }
