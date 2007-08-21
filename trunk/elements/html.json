@@ -1,9 +1,9 @@
 {
 "properties" : 
-["src", "href", "style", "rel", "class", "id"],
+["src", "href", "style", "rel", "class", "id", "onload", "onunload"],
 
 "methods" : 
-["a", "script", "div", "span", "body", "img", "link"],
+["b", "i", "s", "a", "h1", "script", "div", "span", "body", "img", "link"],
 
 "operators" : 
 ["="],
@@ -12,11 +12,11 @@
 ["\"", "'", "`", "´", ";"],
 
 "parenthesis" : 
-["<", ">", "/>", "><", ">>", "<<"],
+["<", ">", "/>", "><", ">>", "<<", "/"],
 
 "whitespace" : 
-[" ", "\n", "\t", "\r"],
+[" ", "\n", "\t", "\r", ""],
 
 "values" : 
-["1", "'abc'", "eval(alert(1))"]
+["1", "'abc'", "eval(alert(1))", "color:red;", "prompt()", "alert(1)"]
 }
