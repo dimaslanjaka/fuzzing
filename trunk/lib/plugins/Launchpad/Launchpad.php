@@ -1,7 +1,15 @@
 <?php
 
 /**
- *
+ * Launchpad plugin
+ * 
+ * Provides static methods to collect results from 
+ * various sources (DBMS, Console, Spidermonkey)
+ * 
+ * @name MetaFuzzer {pha:zing}
+ * @package Fuzzing
+ * @subpackage Plugins
+ * @author <mario.heiderich@gmail.com>
  */
 class Launchpad {
 	

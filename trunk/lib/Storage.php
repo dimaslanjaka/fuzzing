@@ -4,7 +4,10 @@ require_once('abstract/StorageAbstract.php');
 
 /**
  * This is the Storage logic
- *
+ * 
+ * @name MetaFuzzer {pha:zing}
+ * @package Fuzzing
+ * @author <mario.heiderich@gmail.com>
  */
 class Storage extends StorageAbstract implements Iterator, StorageInterface {
 	
@@ -28,6 +31,9 @@ class Storage extends StorageAbstract implements Iterator, StorageInterface {
  * Storage interface - only constructor and getter 
  * are accessible
  *
+ * @name MetaFuzzer {pha:zing}
+ * @package Fuzzing
+ * @author <mario.heiderich@gmail.com>
  */
 interface StorageInterface {
 	

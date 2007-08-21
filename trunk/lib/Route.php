@@ -39,6 +39,9 @@ class Route extends RouteAbstract implements RouteInterface {
 /**
  * Interface for the Route class
  *
+ * @name MetaFuzzer {pha:zing}
+ * @package Fuzzing
+ * @author <mario.heiderich@gmail.com>
  */
 interface RouteInterface {
 	

@@ -1,0 +1,22 @@
+{
+"properties" : 
+["src", "href", "style", "rel", "class", "id"],
+
+"methods" : 
+["a", "script", "div", "span", "body", "img", "link"],
+
+"operators" : 
+["="],
+
+"delimiters" : 
+["\"", "'", "`", "´", ";"],
+
+"parenthesis" : 
+["<", ">", "/>", "><", ">>", "<<"],
+
+"whitespace" : 
+[" ", "\n", "\t", "\r"],
+
+"values" : 
+["1", "'abc'", "eval(alert(1))"]
+}
