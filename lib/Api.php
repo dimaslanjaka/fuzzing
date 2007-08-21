@@ -64,6 +64,10 @@ class Api extends ApiAbstract implements ApiInterface {
  * 
  * Since the class logic is self executing after 
  * instantiation no more is needed
+ * 
+ * @name MetaFuzzer {pha:zing}
+ * @package Fuzzing
+ * @author <mario.heiderich@gmail.com>
  */
 interface ApiInterface {
 	

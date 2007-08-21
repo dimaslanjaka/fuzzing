@@ -72,6 +72,10 @@ class Fuzzer extends FuzzerAbstract implements FuzzerInterface  {
  * Fuzzer interface
  * 
  * Only interceptors and getters are public
+ * 
+ * @name MetaFuzzer {pha:zing}
+ * @package Fuzzing
+ * @author <mario.heiderich@gmail.com>
  */
 interface FuzzerInterface {
 	
