@@ -16,22 +16,6 @@ abstract class ApiAbstract extends IteratorIterator implements Iterator {
      */
     protected $routes = array();
 
-    /**
-     * Result storage    
-     *
-     * @var array
-     */
-    protected $results = array();
-	
-	/**
-	 * Getter for the result object
-	 *
-	 * @return object
-	 */
-	public function getResults() {
-		return $this->results;
-	}
-	
 	/**
 	 * __toString
 	 * 
