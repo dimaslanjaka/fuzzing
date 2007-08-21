@@ -8,7 +8,8 @@ require_once('../lib/plugins/Launchpad/Launchpad.php');
 # currently allowed are W,D,P,M,B,O,V
 $routes = array('MBPVBWD', 
                 'POMVBPOBWD', 
-                'BMVWODBM?P?VO', 
+                'BMVWOD*BM?P?VO',
+                'DMDWDMWPOVDMMBW', 
                 '??????????', 
                 '*');
 # start {pha:zing}
