@@ -1,7 +1,8 @@
 <?php
 
-# fetch the API
+# fetch the API and the plugin(s)
 require_once('../lib/Api.php');
+require_once('../lib/plugins/Launchpad/Launchpad.php');
 
 # Some HTML Fuzzing
 
@@ -13,7 +14,7 @@ $routes = array('MBPVBWD', 'POMVBPOBWD', 'BMVWODBM?P?VO', '??????????', '*');
 $fuzzer = new Api($routes, '../elements/html.json');
 
 # take a look at the results
-echo $fuzzer;
+echo Launchpad::htmlWrapper($fuzzer);
 
 
 
@@ -27,5 +28,5 @@ $routes = array('MB*VBWD', 'POM????WD', 'BMVWODBVO', '*');
 $fuzzer = new Api($routes, '../elements/javascript.json');
 
 # take a look at the results
-echo $fuzzer;  
+echo Launchpad::scriptWrapper($fuzzer);  
 # we can use the Launchpad plugin soon to pass the output to spidermonkey

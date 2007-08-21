@@ -1,22 +1,22 @@
 {
 "properties" : 
-["document", "window", "frame", "this", "self", "top", "parent"],
+["src", "href", "style", "rel", "class", "id"],
 
 "methods" : 
-["alert", "prompt", "write", "eval", "log", "dir"],
+["a", "script", "div", "span", "body", "img", "link"],
 
 "operators" : 
-["=", "+", "-", "*", "^", "/", "+=", "--", "||"],
+["="],
 
 "delimiters" : 
-[".", ", ", ";", ":"],
+["\"", "'", "`", "´", ";"],
 
 "parenthesis" : 
-["(", ")", "[", "]", "{", "}"],
+["<", ">", "/>", "><", ">>", "<<"],
 
 "whitespace" : 
 [" ", "\n", "\t", "\r"],
 
 "values" : 
-[".location", ".href", ".history", ".name", "onload"]
+["1", "'abc'", "eval(alert(1))"]
 }
