@@ -37,6 +37,7 @@ abstract class FuzzerAbstract {
      */
     protected function startFuzzing() {
 
+    	$result = null;
         foreach($this->routes as $route) {
             
             foreach($route as $item) {
