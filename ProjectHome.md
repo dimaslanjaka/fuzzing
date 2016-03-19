@@ -1,0 +1,1 @@
+This repository hosts all projects of the Fuzzing Google Group. Feel free to ask for membership if you are interested in the topic or just like to contribute something.
